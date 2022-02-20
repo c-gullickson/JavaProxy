@@ -34,7 +34,7 @@ public class RequestHandler extends Thread {
 	String requestType = "";
 	int port = 80;
 
-	// Pass in socket object
+	// Pass in socket object and proxy server as a reference in order to get to the log and cache methods
 	public RequestHandler(Socket clientSocket, ProxyServer proxyServer) {
 
 		System.out.println("Creating a new RequestHandler object by accepting a connection to the proxy server");
@@ -199,12 +199,7 @@ public class RequestHandler extends Thread {
 			if (cachedFile != null) {
 				BufferedReader cachedFileBufferedReader = new BufferedReader(
 						new InputStreamReader(new FileInputStream(cachedFile)));
-
-//				String line = "HTTPS/1.0 200 OK\n" + "Proxy-agent: ProxyServer/1.0\n" + "\r\n";
-//
-//				clientToProxyBufferedWriter.write(line);
-//				clientToProxyBufferedWriter.flush();
-
+				
 				String cachedItem;
 				while ((cachedItem = cachedFileBufferedReader.readLine()) != null) {
 					System.out.println("Cached Item from client: " + cachedItem);
@@ -251,7 +246,7 @@ public class RequestHandler extends Thread {
 					new InputStreamReader(proxyToServerCon.getInputStream()));
 
 			String line = "HTTPS/1.0 200 OK\n" + "Proxy-agent: ProxyServer/1.0\n" + "\r\n";
-			clientToProxyBufferedWriter.write(line);
+			clientToProxyBufferedWriter.write(line); 
 			clientToProxyBufferedWriter.flush();
 			
 			if (proxyToServerReader != null) {

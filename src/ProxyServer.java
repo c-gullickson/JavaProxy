@@ -32,10 +32,9 @@ public class ProxyServer {
 	PrintWriter logWriter;
 
 	public static void main(String[] args) {
-		// new ProxyServer().startServer(Integer.parseInt(args[0]));
+		 new ProxyServer().startServer(Integer.parseInt(args[0]));
 		// Using Hardcoded server port for testing
-		new ProxyServer().startServer(7777);
-
+		//new ProxyServer().startServer(7777);
 	}
 
 	void startServer(int proxyPort) {
