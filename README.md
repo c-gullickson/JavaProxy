@@ -1,5 +1,6 @@
 # JavaProxy
 Network proxy built in Java for CSCI 846, assignment 1
+Proxy Demonstration recording: https://youtu.be/7N0VAqARfOc
 
 The application code can be cloned or downloaded from GitHub: https://github.com/c-gullickson/JavaProxy, specifically the ProxyServer.java and RequestHandler.java files. When pulling these files down, they should be placed into an accessible directory within the local environment.
 Open a command prompt window as an administrator, and navigate to the folder where the source files are located. Command "cd {file path}" 
